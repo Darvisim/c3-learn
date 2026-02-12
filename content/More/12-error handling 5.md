@@ -17,7 +17,7 @@ faultdef DIVISION_BY_ZERO;
 
 fn int? divide_int(int x, int y)
 {
-	if (!y) return DIVISION_BY_ZERO?;
+	if (!y) return DIVISION_BY_ZERO~;
 	return x / y;
 }
 
