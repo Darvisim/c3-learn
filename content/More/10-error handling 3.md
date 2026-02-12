@@ -16,7 +16,7 @@ faultdef SOMETHING_MISSING, GENERAL_ERROR_WAS_HERE;
 
 fn void? x(int i)
 {
-	if (i < 0) return SOMETHING_MISSING?;
+	if (i < 0) return SOMETHING_MISSING~;
 }
 
 fn void main()
