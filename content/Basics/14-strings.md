@@ -51,42 +51,5 @@ fn void demo_s_to_ds() {
     ds.append_string("!"); // example of dstring append method
 }
 ```
-Using char**
-```c3 {norun=true}
-import libc;
-
-// Example of a function that takes a char**
-fn void print_params(char** params, int count) {
-    for (int i = 0; i < count; i += 1) {
-        libc::puts((ZString) params[i]);
-    }
-}
-
-fn int main(String[] args)
-{
-  ZString zs = "test".zstr_copy(mem);
-
-  // In C3, unlike in C, a fixed array does not
-  // become a pointer when passed as an argument.
-  // Either a slice (which is implicitly
-  // convertible to a pointer) must be created,
-  // or an explicit pointer of the correct type
-  // must be provided.
-
-  // So if we have
-  // char *[1] params;
-  // params[0] = 'test';
-  // and we pass params to a function that expects
-  // a char** we will get the error "You cannot
-  // cast 'char*[1]' to 'char**'".
-
-  // Instead we will do
-  char*[] params = { zs }; // slice of 1 element
-
-  print_params(params, params.len);
-
-  return 0;
-}
-```
 {{<endstr>}}
 
