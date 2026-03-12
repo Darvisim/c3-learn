@@ -5,12 +5,9 @@ aliases:
 weight: 1
 ---
 ## Windows
-1. Install Python.
-2. [Download](https://github.com/c3lang/c3c/releases/download/latest-prerelease-tag/c3-windows.zip)
-3. Unzip
-4. Run `install_win_reqs.bat`
-5. Run `msvc_build_libraries.py`
-6. Run `c3c.exe`
+1. [Download](https://github.com/c3lang/c3c/releases/download/latest-prerelease-tag/c3-windows.zip)
+2. Unzip
+3. Run `c3c.exe`
 
 ## Mac
 1. Make sure you have XCode with command line tools installed.
@@ -18,8 +15,8 @@ weight: 1
 3. Unpack
 4. Run `./c3c`
 
-## Debian
-1. [Download](https://github.com/c3lang/c3c/releases/download/latest-prerelease-tag/c3-linux.tar.gz)
+## Linux
+1. [Download](https://github.com/c3lang/c3c/releases/download/latest-prerelease-tag/c3-linux-static.tar.gz)
 2. Unpack
 3. Run `./c3c`
 
