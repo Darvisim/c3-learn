@@ -1,12 +1,12 @@
 </div>
 <div class="fvert">
-<div class="fhorb">
-<button id="tclb" onclick="tclb()">CLEAR</button>
-<button id="trsb" onclick="trsb()">RESET</button>
-<button id="tcpb" onclick="tcpb()">COPY</button>
-<button id="trnb" onclick="trnb()">RUN</button>
-</div>
-<pre><code id="stdin" class="language-c3"></code></pre>
-<textarea id="stdout" readonly></textarea>
+	<div class="c3block_buttons">
+		<button class="clearb" id="clear" onclick="tclb()" hidden>CLEAR</button>
+		<button class="resetb" id="reset" onclick="trsb()"><img src="/icons/rotate-ccw.svg" title="Reset code"></img></button>
+		<button class="copyb"  id="copy" onclick="tcpb()"><img src="/icons/copy.svg" title="Copy code"></img></button>
+		<button class="runb"   id="run" onclick="trnb()"><img src="/icons/play.svg" title="Run code"></img></button>
+	</div>
+	<pre><code id="stdin" class="language-c3"></code></pre>
+	<textarea id="stdout" readonly></textarea>
 </div>
 </div>

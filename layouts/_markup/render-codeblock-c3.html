@@ -1,7 +1,6 @@
 {{ if .Attributes.norun }}
 	{{ (transform.HighlightCodeBlock .).Wrapped }}
 {{ else }}
-	{{ if not (.Page.Store.Get "codeblock-loaded") }}
 		<link rel="stylesheet" href="/lib/prism-dark.css">
 		<script src="/lib/jquery.js"></script>
 		<script type="module" src="/lib/codejar.min.js"></script>
@@ -22,7 +21,11 @@
 		.c3block_buttons{
 			display:flex;
 			flex-direction:row;
+			position: absolute;
+			top: 0px;
+			right: 0px;
 		}
+		
 
 		/*.fvert{
 			width:100%;
@@ -78,57 +81,27 @@
 			background-color:#9BBFE3;
 		}
 
-		button{
+		button {
 			color:#000000;
 			font-size:14px;
-			border:solid 1px #295E92;
-			padding:0;
-			margin:0;
-			width:80px;
-			height:30px;
+			/*border: solid 1px #295E92;*/
+			border: solid 1px white;
+			/*border: none;*/
+			padding:4px;
+			margin:5px;
+			width: auto;
+			height: auto;
+			border-radius: 20%;
+			width: 32px;
+			height: 32px;
+
 		}
 
-		.copyb{
-			background-color:#D2E0ED;
-			border-bottom-width:0;
-			border-right-width:0;
+		button img {
+			filter: invert(100%);
 		}
 
-		.copyb:hover{
-			background-color:#9FBDD9;
-		}
-
-		.clearb{
-			background-color:#EDD1D1;
-			border-bottom-width:0;
-			border-right-width:0;
-		}
-
-		.clearb:hover{
-			background-color:#E1B3B3;
-		}
-
-		.resetb{
-			background-color:#EDD1D1;
-			border-bottom-width:0;
-			border-right-width:0;
-		}
-
-		.resetb:hover{
-			background-color:#E1B3B3;
-		}
-
-		.runb{
-			background-color:#D1EDD5;
-			border-bottom-width:0;
-		}
-
-		.runb:hover{
-			background-color:#B3E1BA;
-		}
 		</style>
-		{{ .Page.Store.Set "codeblock-loaded" true }}
-	{{ end }}
 	{{ if not (.Page.Store.Get "codeblock-id") }}
 		{{ .Page.Store.Set "codeblock-id" 0 }}
 	{{ end }}
@@ -191,13 +164,13 @@
 		})
 		</script>
 
-		<div class="c3block_buttons">
-			<button class="clearb" id="clear-{{$id}}">CLEAR</button>
-			<button class="resetb" id="reset-{{$id}}">RESET</button>
-			<button class="copyb"  id="copy-{{$id}}">COPY</button>
-			<button class="runb"   id="run-{{$id}}">RUN</button>
-		</div>
-		<div>
+		<div style="position: relative">
+			<div class="c3block_buttons">
+				<button class="clearb" id="clear-{{$id}}" hidden>CLEAR</button>
+				<button class="resetb" id="reset-{{$id}}"><img src="/icons/rotate-ccw.svg" title="Reset code"></img></button>
+				<button class="copyb"  id="copy-{{$id}}"><img src="/icons/copy.svg" title="Copy code"></img></button>
+				<button class="runb"   id="run-{{$id}}"><img src="/icons/play.svg" title="Run code"></img></button>
+			</div>
 			<pre><code id="stdin-{{$id}}" class="language-c3"></code></pre>
 			<textarea id="stdout-{{$id}}" class="stdout" readonly hidden></textarea>
 		</div>

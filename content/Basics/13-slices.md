@@ -25,5 +25,16 @@ int[] foo8 = list[^2..]; // ^2 means "len - 2"
 int[] foo8 = list[^2..^1]; 
 int[] foo9 = list[^2:2];
 ```
-{{<end13>}}
+{{<end>}}
 
+{{<defcod>}}
+import std::io;
+
+fn void main()
+{
+	int[6] list = { 2, 3, 5, 7, 11, 13 };
+	int[] s = list[1..4];
+
+	io::printfn("%s", s);
+}
+{{</defcod>}}
