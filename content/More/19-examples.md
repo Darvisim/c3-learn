@@ -64,14 +64,14 @@ import std::io;
 
 fn void main()
 {
-	usz count = 5;
+	sz count = 5;
 	int starting_value = 0;
 	String res = some_func(mem, count, starting_value);
 	io::printn(res);
 	mem::free(res);
 }
 
-fn String some_func(Allocator alloc, usz count, int starting_value)
+fn String some_func(Allocator alloc, sz count, int starting_value)
 {
 	@pool()
 	{
@@ -79,7 +79,7 @@ fn String some_func(Allocator alloc, usz count, int starting_value)
 		// Initialise the string builder using the temporary allocator
 		// The `@pool()` ensures it will be automatically freed when the function exits
 		buf.init(tmem);
-		for (usz i = 0; i < count; i++) buf.appendf("[%s]", starting_value + i);
+		for (sz i = 0; i < count; i++) buf.appendf("[%s]", starting_value + i);
 		// Copy the final string into the passed allocator
 		return buf.copy_str(alloc);
 	};

@@ -8,7 +8,7 @@ weight: 5
 C3 `for` loops are the same as in C.<br>
 A `for` loop is made of 3 sections that are enclosed in parentheses and separated by semicolons:
  - the init section, which is is run once when the loop is first started and
-   usually used to declare the counter (eg `usz i = 0`).
+   usually used to declare the counter (eg `sz i = 0`).
  - the condition section, which is checked before the code in the loop body is
    executed each iteration of the loop. The loop will continue running until the
    condition is no longer true.
@@ -26,7 +26,7 @@ import std::io;
 fn void main()
 {
 	const TIMES = 5;
-	for (usz i = 0; i < TIMES; i = i + 1)
+	for (sz i = 0; i < TIMES; i = i + 1)
 	{
 		io::printfn("Iteration %s", i);
 	}
@@ -41,7 +41,7 @@ import std::io;
 fn void main()
 {
 	const TIMES = 10;
-	for (usz i = 0; i < TIMES; i++)
+	for (sz i = 0; i < TIMES; i++)
 	{
 		if (i == 3)
 		{
@@ -65,7 +65,7 @@ array or hashmap with a `for` loop can become a bit cumbersome, this is where
 fn void main()
 {
 	int[3] items = {123, 456, 789};
-	for (usz i = 0; i < items.len; i++)
+	for (sz i = 0; i < items.len; i++)
 	{
 		items[i] += items[i];
 	}
